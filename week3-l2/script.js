@@ -184,9 +184,9 @@ sortDropdown.addEventListener('change', function () {
     const selectedOption = sortDropdown.value;
 
     if (selectedOption === 'Newest') {
-        favorites.sort((a, b) => b.id - a.id); // Sort newest first
+        favorites.sort((a, b) => b.id - a.id); // Sort by newest first (descending)
     } else if (selectedOption === 'Oldest') {
-        favorites.sort((a, b) => a.id - b.id); // Sort oldest first
+        favorites.sort((a, b) => a.id - b.id); // Sort by oldest first (ascending)
     }
 
     // Re-render the favorites section
