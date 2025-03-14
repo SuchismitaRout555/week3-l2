@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+    <!-- Top Banner -->
+    <div class="top-banner">SUPER SALE UP TO 40% OFF</div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="#" class="nav-link">SHOP</a>
+            <a href="#" class="nav-link">COMMUNITY</a>
+        </div>
+
+        <div class="logo">
+            <img src="https://s3-alpha-sig.figma.com/img/fa86/dba2/8e54fa1a57be9e9b0dc3bd6b4b441d93?Expires=1742774400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=jvN6wDSE3RME4ZFJW8PLRfCcZbiDS0kEz1ML7rQ7tZmIDIViEAcRc9LfMe~B~qVSuObyi8lfbX~BosESZ3iIjmyx7DmCxuv3ceLssNvOKzAR~YrK9XtfmtaqrI1R2QVDvtX2nb5XkpBmhma0kj-lP4zd7DDJA9XPjUPWK-nW~WLwxlFmGuiUeeJhBTwfCosuuGKNA5Q4IgK7hGFgea977gydJln3jmWRW~KUYAwSJNsYlG86jR5hpkSRDmmDEsKjslQ2YyyW7Wi0uYbQbABGZZmz0pO8PnGqfL24ItCoN3getiJ8BApn1s3cjzwNq1IGKbaf2zySFeeLPRbDhlHmdg__"
+                alt="PLUSH Logo" lazy="loading">
+        </div>
+
+        <div class="nav-right">
+            <!-- <span class="nav-icon"><i class="fas fa-user"></i></span> -->
+            <img src="./img/user.png" alt="" lazy="loading">
+            <img src="./img/search2.png" alt="" lazy="loading">
+            <img src="./img/bag.png" alt="" lazy="loading">
+
+            <!-- <span class="nav-icon"><i class="fas fa-search"></i></span>
+            <span class="nav-icon"><i class="fas fa-shopping-cart"></i></span> -->
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+
+    <section class="hero" id="hero-section">
+        <div class="hero-content">
+            <h1>Stock photos</h1>
+            <p id="hero-description">John Wick is on the run after killing a member of the international assassins'
+                guild, and with a $14 million price tag on his head, he is the target of hit men and women everywhere.
+            </p>
+            <br>
+            <a href="#" class="hero-button">
+             <img src="./img/Play.png" alt="">
+              EXPLORE
+            </a>
+        </div>
+        <img src="https://s3-alpha-sig.figma.com/img/154e/382f/b7e8be84d7248b8b9812172cad1cd0c9?Expires=1742774400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=TthicXYevCufbs-mNLYl365Jmmpz41K3dQKEOY9JBQ94wuaqtczw40qyh-T2y2kda2WNnqAn6eZy35s98Sl9DyRjMZG81ySAAP4uxP2o0V2o~kyMsmWndMm75GD6ekLL-oUNw40kZBx8fvXNL63x8YTOt~V8bS0jlyM-gQ2dpep4IFuKSLIZn7AzjE6nlkD0nOOK7TdFrIPGf4UZI6yb~AkFG23Trup2TD63tj3VqlYClUL0Tfv5zD~~0x5ljTOFBT-AcoJGRaepyzvBwMkl-~LA0FyNIVH2WR2Ea61ssXUgmQ2QKktH1h4HmhgH~V~wu4EHc3By2v8H2E~Xc4WcVg__"
+            alt="John Wick" class="hero-image" lazy="loading">
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="search-container">
+            <input type="text" id="search-input" class="search-input" placeholder="Search photos..." value="Laptop">
+
+            <img src="./img/Search.png" class="search-icon" id="search-button" lazy="loading">
+            <!-- <input type="text" name="search" placeholder="Search.."> -->
+        </div>
+    </section>
+
+    <!-- Main Photo Section -->
+    <section class="main-photo-section" id="main-photo-section">
+        <div class="loading" id="loading-indicator">
+            <div class="loading-spinner"></div>
+        </div>
+    </section>
+
+    <!-- Similar Results Section -->
+    <section class="similar-results">
+        <h2>Similar Results</h2>
+        <div class="photos-grid" id="similar-photos-grid">
+            <!-- Similar photos will be loaded here -->
+        </div>
+    </section>
+
+    <!-- Favorites Section -->
+    <section class="favorites-section">
+        <div class="favorites-header">
+            <h2>Favorites List</h2>
+            <select class="sort-dropdown">
+                <option value="">Sort</option>
+                <option value="Newest">Newest</option>
+                <option value="Oldest">Oldest</option>
+            </select>
+        </div>
+        <div class="photos-grid" id="favorites-grid">
+            <!-- Favorites will be loaded here -->
+        </div>
+    </section>
+
+    <select class="sort-dropdown">
+    <option value="">Sort</option>
+    <option value="Newest">Newest</option>
+    <option value="Oldest">Oldest</option>
+</select>
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>
