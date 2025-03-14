@@ -146,7 +146,7 @@ function renderFavorites() {
 }
 
 
-// Toggle favorite
+// Toggle favorite---
 function toggleFavorite(id, src, alt, photographer) {
     const existingIndex = favorites.findIndex(fav => fav.id === id);
 
@@ -154,8 +154,14 @@ function toggleFavorite(id, src, alt, photographer) {
         // Remove from favorites
         favorites.splice(existingIndex, 1);
     } else {
-        // Add to favorites with photographer name
-        favorites.push({ id, src, alt, photographer });
+        // Add to favorites with photographer name and timestamp
+        favorites.push({ 
+            id, 
+            src, 
+            alt, 
+            photographer,
+            timestamp: Date.now() // Add timestamp when favorite is added
+        });
     }
 
     // Save to localStorage
@@ -184,14 +190,82 @@ sortDropdown.addEventListener('change', function () {
     const selectedOption = sortDropdown.value;
 
     if (selectedOption === 'Newest') {
-        favorites.sort((a, b) => b.id - a.id); // Sort by newest first (descending)
+        favorites.sort((a, b) => {
+            // If both have timestamps, sort by timestamp
+            if (a.timestamp && b.timestamp) {
+                return b.timestamp - a.timestamp; // Newest first
+            } 
+            // If only one has a timestamp, the one with timestamp is newer
+            else if (a.timestamp) {
+                return -1;
+            } 
+            else if (b.timestamp) {
+                return 1;
+            }
+            // Fall back to ID if neither has timestamp
+            return b.id - a.id;
+        });
     } else if (selectedOption === 'Oldest') {
-        favorites.sort((a, b) => a.id - b.id); // Sort by oldest first (ascending)
+        favorites.sort((a, b) => {
+            // If both have timestamps, sort by timestamp
+            if (a.timestamp && b.timestamp) {
+                return a.timestamp - b.timestamp; // Oldest first
+            } 
+            // If only one has a timestamp, the one with timestamp is newer
+            else if (a.timestamp) {
+                return 1;
+            } 
+            else if (b.timestamp) {
+                return -1;
+            }
+            // Fall back to ID if neither has timestamp
+            return a.id - b.id;
+        });
     }
 
     // Re-render the favorites section
     renderFavorites();
 });
+// Get the sort dropdown element
+// const sortDropdown = document.querySelector('.sort-dropdown');
+
+// // Add event listener for sorting
+// sortDropdown.addEventListener('change', function () {
+//     const selectedOption = sortDropdown.value;
+
+//     if (selectedOption === 'Newest') {
+//         favorites.sort((a, b) => b.id - a.id); // Sort newest first
+//     } else if (selectedOption === 'Oldest') {
+//         favorites.sort((a, b) => a.id - b.id); // Sort oldest first
+//     }
+
+//     // Re-render the favorites section
+//     renderFavorites();
+// });
+
+// // Initialize the page
+// window.addEventListener('DOMContentLoaded', () => {
+//     // Add timestamps to existing favorites if they don't have them
+//     favorites = favorites.map(fav => {
+//         if (!fav.timestamp) {
+//             return { ...fav, timestamp: Date.now() };
+//         }
+//         return fav;
+//     });
+    
+//     // Save the updated favorites
+//     localStorage.setItem('favorites', JSON.stringify(favorites));
+    
+//     loadPhotos();
+
+//     // Event listeners
+//     searchButton.addEventListener('click', handleSearch);
+//     searchInput.addEventListener('keypress', (e) => {
+//         if (e.key === 'Enter') {
+//             handleSearch();
+//         }
+//     });
+// });
 
 // Show/hide loading indicator
 function showLoading(isLoading) {
